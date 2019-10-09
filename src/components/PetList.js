@@ -1,10 +1,16 @@
 import React, { PureComponent } from 'react';
+import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 
 import Pet from './Pet';
 import { IoIosSearch } from "react-icons/io";
 
 import { animals } from '../data'
 import '../App.css';
+
+const loadingStyle = {
+  display: 'block',
+  margin: '20% auto',
+}
 
 class PetList extends PureComponent {
   state = {
@@ -16,7 +22,9 @@ class PetList extends PureComponent {
   }
 
   componentDidMount() {
-    this.setState({ animalList: animals, filtered: animals })
+    setTimeout(() => {
+      this.setState({ animalList: animals, filtered: animals })
+    }, 2000);  
   }
 
   handleChange = (e) => {
@@ -43,6 +51,20 @@ class PetList extends PureComponent {
   render() {
     const { searchValue, animalList, isSearched, filtered, type } = this.state;
     let List;
+
+    const isEmpty = animalList.length === 0;
+    // show loading component if 'pet list' is empty
+    if (isEmpty) {
+      return (
+        <ClimbingBoxLoader
+          css={loadingStyle}
+          sizeUnit={'px'}
+          size={20}
+          color={'#17375f'}
+          loading={isEmpty}
+        />
+      );
+    } 
 
     if (isSearched) {
       List = filtered.map(animal => (<li key={animal.id}><Pet pet={animal} /></li>))
