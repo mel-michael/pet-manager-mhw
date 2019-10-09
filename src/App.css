@@ -101,10 +101,14 @@
   .filter_section {
     margin: 10px auto;
     max-width: 700px;
+    font-size: 14px;
   }
   .pet_wrapper {
     margin: 30px auto;
-    max-width:700px;
+    max-width: 700px;
+  }
+  .pet_type li {
+    padding: 4px 12px;
   }
 }
 
@@ -115,7 +119,6 @@
   .filter_section {
     margin: 10px auto;
     max-width: 300px;
-    padding-left: 20px;
   }
   .pet_wrapper {
     margin: 30px auto;
@@ -131,8 +134,5 @@
   .pet_type {
     width: 100%;
   }
-
-  .pet_type li {
-    padding: 4px 16px;
-  }
+ 
 }

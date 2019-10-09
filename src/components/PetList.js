@@ -9,7 +9,7 @@ import '../App.css';
 
 const loadingStyle = {
   display: 'block',
-  margin: '50% auto',
+  margin: '300px auto',
 }
 
 class PetList extends PureComponent {
