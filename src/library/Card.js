@@ -1,7 +1,8 @@
-// External dependencies
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+import Heart from './Heart';
 
 // Styles
 const Card = styled.div`
@@ -30,6 +31,16 @@ const CardTitle = styled.h3`
   left: 5%;
 `;
 
+const imgStyle = {
+  position: 'relative',
+  width: '100%',
+  height: '200px',
+  left: '0',
+  right: '0',
+  top: '0',
+  bottom: '0'
+};
+
 const imgOverlay = {
   position: 'absolute',
   top: '0',
@@ -41,16 +52,6 @@ const imgOverlay = {
   backgroundColor: 'rgba(0,0,0,0.4)',
 }
 
-const imgStyle = {
-  position: 'relative',
-  width: '100%',
-  height: '200px',
-  left: '0',
-  right: '0',
-  top: '0',
-  bottom: '0'
-};
-
 const breedStyle = {
   position: 'absolute',
   background: 'transparent',
@@ -60,8 +61,17 @@ const breedStyle = {
   left: '5%',
 }
 
+const savedStyle = {
+  position: 'absolute',
+  top: '10px',
+  right: '10px',
+  zIndex: '100',
+  cursor: 'pointer'
+}
+
 function PetCard({ pet }) {
-  const { img, name, breed } = pet;
+  const { img, name, breed, saved } = pet;
+
   return (
     <Link to={{ pathname: '/details', state: pet }}>
       <Card>
@@ -69,6 +79,7 @@ function PetCard({ pet }) {
         <div style={imgOverlay}></div>
         <CardTitle>{name}</CardTitle>
         <span style={breedStyle}>{breed}</span>
+        <div style={savedStyle}><Heart saved={saved} /></div>
       </Card>
     </Link>
   );
