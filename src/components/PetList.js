@@ -12,6 +12,7 @@ class PetList extends PureComponent {
     animalList: [],
     filtered: [],
     isSearched: false,
+    type: 'all'
   }
 
   componentDidMount() {
@@ -28,8 +29,19 @@ class PetList extends PureComponent {
     this.setState({ isSearched: true, filtered: result })
   }
 
+  handleFilter = (type) => {
+    let result;
+    const { animalList } = this.state;
+    if(type === 'all') {
+      result = animalList;
+    } else {
+      result = animalList.filter(animal => animal.type.toLowerCase().includes(type.toLowerCase()))
+    }
+    this.setState({ type, isSearched: true, filtered: result })
+  }
+
   render() {
-    const { searchValue, animalList, isSearched, filtered } = this.state;
+    const { searchValue, animalList, isSearched, filtered, type } = this.state;
     let List;
 
     if (isSearched) {
@@ -48,12 +60,28 @@ class PetList extends PureComponent {
           <span className="search_icon" onClick={this.handleSearch}><IoIosSearch /></span>
         </header>
         <div className="filter_section">
-          <h4 className="title">Type</h4>
-          <ul className="breeds">
-            <li className="active">Bunnies</li>
-            <li>Cats</li>
-            <li>Dogs</li>
-            <li>Toads</li>
+          <h4>Type</h4>
+          <ul className="pet_type">
+            <li className={type === 'all' ? 'active' : ''}
+              onClick={() => this.handleFilter('all')}>
+              All
+            </li>
+            <li className={type === 'bunny' ? 'active' : ''}
+              onClick={() => this.handleFilter('bunny')}>
+              Bunnies
+            </li>
+            <li className={type === 'cat' ? 'active' : ''}
+              onClick={() => this.handleFilter('cat')}>
+              Cats
+            </li>
+            <li className={type === 'dog' ? 'active' : ''}
+              onClick={() => this.handleFilter('dog')}>
+              Dogs
+            </li>
+            {/* <li className={type === 'toad' ? 'active' : ''}
+              onClick={() => this.handleFilter('toad')}>
+              Toads
+            </li> */}
           </ul>
         </div>
         <div className="pet_wrapper">

@@ -42,24 +42,25 @@
   color: #a1a1a1;
 }
 
-.breeds {
+.pet_type {
   list-style: none;
   padding: 0;
   display: flex;
-  width: 50%;
+  width: 60%;
   justify-content: space-around;
 }
 
-.breeds li {
-  border: none;
+.pet_type li {
+  border: 2px solid transparent;
   padding: 8px 30px;
   border-radius: 30px;
   background: transparent;
   color: #17375f;
   cursor: pointer;
+  margin-right: 10px;
 }
 
-.breeds li.active {
+.pet_type li.active {
   border: 2px solid #05d5a6;
   padding: 8px 30px;
   border-radius: 30px;
@@ -68,7 +69,7 @@
   cursor: pointer;
 }
 
-.breeds li.active:hover {
+.pet_type li:hover {
   border: 2px solid #05d5a6;
   background: white;
   color: #17375f;
