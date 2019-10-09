@@ -32,9 +32,10 @@
 }
 
 .filter_section {
-  margin: 50px auto;
+  margin: 30px auto;
   max-width: 960px;
-  border: 1px saddlebrown;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #eee;
 }
 
 .filter_section h4 {

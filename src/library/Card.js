@@ -1,6 +1,7 @@
 // External dependencies
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 // Styles
 const Card = styled.div`
@@ -20,15 +21,13 @@ const Card = styled.div`
 `;
 
 const CardTitle = styled.h3`
+  position: absolute;
   display: flex;
-  justify-content: space-between;
-  color: #434343;
+  color: white;
   font-size: 15px;
-  padding: 0 10px;
-  cursor: pointer;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin: 0;
+  top: 70%;
+  left: 5%;
 `;
 
 const imgOverlay = {
@@ -52,14 +51,26 @@ const imgStyle = {
   bottom: '0'
 };
 
+const breedStyle = {
+  position: 'absolute',
+  background: 'transparent',
+  fontSize: '12px',
+  color: 'white',
+  top: '80%',
+  left: '5%',
+}
+
 function PetCard({ pet }) {
-  const { img, name } = pet;
+  const { img, name, breed } = pet;
   return (
-    <Card>
-      <img src={img} style={imgStyle} alt={`${name} pet`} />
-      <div style={imgOverlay}></div>
-      <CardTitle>{name}</CardTitle>
-    </Card>
+    <Link to={{ pathname: '/details', state: pet }}>
+      <Card>
+        <img src={img} style={imgStyle} alt={`${name} pet`} />
+        <div style={imgOverlay}></div>
+        <CardTitle>{name}</CardTitle>
+        <span style={breedStyle}>{breed}</span>
+      </Card>
+    </Link>
   );
 }
 
