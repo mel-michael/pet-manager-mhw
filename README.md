@@ -2,11 +2,11 @@
 
 # Technologies
 
-* create-react-app
+* [Create React App](https://github.com/facebook/create-react-app)
 
-* styled-component
+* [Styled Component](https://github.com/styled-components/styled-components)
 
-* react-router dom
+* [React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
 
 
 ## Installation
@@ -15,7 +15,7 @@
 
 * Run `npm start` to start the application
 
-* Go to localhost:3000 to view the application
+* Go to `localhost:3000` to view the application
 
 
 ## Prioritized
