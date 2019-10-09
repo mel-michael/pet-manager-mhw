@@ -5,10 +5,33 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
+.search_input {
+  font-size: 16px;
+  height: 30px;
+  width: 40%;
+  border: 1px solid salmon;
+  border-radius: 20px;
+  padding: 5px 20px;
+  background: transparent;
+  color: white;
+  outline: none;
+}
 
-.App-link {
-  color: #09d3ac;
+.pet_wrapper {
+  margin: 50px auto;
+  max-width: 960px;
+}
+
+.pet_list {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  flex-flow: row wrap;
+}
+
+.pet_list li {
+  margin-right: 20px;
 }
