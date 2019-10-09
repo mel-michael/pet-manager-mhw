@@ -28,11 +28,12 @@
   outline: 0;
   color: #eee;
   position: relative;
-  left: -55px;
+  left: -56px;
 }
 
 .filter_section {
   margin: 30px auto;
+  min-width: 300px;
   max-width: 960px;
   padding-bottom: 10px;
   border-bottom: solid 1px #eee;
@@ -63,7 +64,6 @@
 
 .pet_type li.active {
   border: 2px solid #05d5a6;
-  padding: 8px 30px;
   border-radius: 30px;
   background: #05d5a6;
   color: white;
@@ -91,4 +91,48 @@
 
 .pet_list li {
   margin-right: 20px;
+}
+
+
+@media screen and (max-width: 770px) {
+  .App-header {
+    min-height: 200px;
+  }
+  .filter_section {
+    margin: 10px auto;
+    max-width: 700px;
+  }
+  .pet_wrapper {
+    margin: 30px auto;
+    max-width:700px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .App-header {
+    min-height: 120px;
+  }
+  .filter_section {
+    margin: 10px auto;
+    max-width: 300px;
+    padding-left: 20px;
+  }
+  .pet_wrapper {
+    margin: 30px auto;
+    max-width: 300px;
+  }
+  .search_input {
+    width: 60%;
+  }
+  .search_icon {
+    left: -45px;
+  }
+
+  .pet_type {
+    width: 100%;
+  }
+
+  .pet_type li {
+    padding: 4px 16px;
+  }
 }

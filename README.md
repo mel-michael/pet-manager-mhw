@@ -26,11 +26,12 @@
 
 * Search Implementation
 
+* Responsiveness
+
 
 ## To Do
 
 * Pet Details page
 
-* Responsiveness
 
 
