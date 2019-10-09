@@ -1,7 +1,6 @@
 // External dependencies
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 import './PetDetails.css';
 
@@ -14,7 +13,7 @@ const Header = styled.div`
   color: white;
   background-color: grey;
   background-image: ${props =>
-    props.backgroundImg ? 'url(' + props.backgroundImg + ')' : ''};
+    props.backgroundImg ? `url(${props.backgroundImg})` : ''};
   background-size: cover;
   background-position: top;
   &:after {
@@ -55,6 +54,11 @@ const Section = styled.div`
 const PetDetails = (props) => {
   const { state: pet } = props.location;
   const { scores } = pet;
+
+  useEffect(() => {
+    // Force view to start from the top
+    window.scrollTo(0, 0);
+  });
 
   console.log(props)
 
