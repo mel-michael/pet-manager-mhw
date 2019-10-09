@@ -24,7 +24,7 @@ class PetList extends PureComponent {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ animalList: animals, filtered: animals })
-    }, 2000);  
+    }, 1000);  
   }
 
   handleChange = (e) => {
