@@ -1,5 +1,5 @@
 .App-header {
-  background-color: #282c34;
+  background-color: #17375f;
   min-height: 300px;
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@
   font-size: 16px;
   height: 30px;
   width: 40%;
-  border: 1px solid salmon;
+  border: 1px solid #eee;
   border-radius: 20px;
   padding: 5px 20px;
   background: transparent;
@@ -26,11 +26,55 @@
   padding: 0 10px;
   cursor: pointer;
   outline: 0;
-  color: salmon;
+  color: #eee;
   position: relative;
   left: -55px;
 }
 
+.filter_section {
+  margin: 50px auto;
+  max-width: 960px;
+  border: 1px saddlebrown;
+}
+
+.filter_section h4 {
+  text-transform: uppercase;
+  color: #a1a1a1;
+}
+
+.breeds {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+}
+
+.breeds li {
+  border: none;
+  padding: 8px 30px;
+  border-radius: 30px;
+  background: transparent;
+  color: #17375f;
+  cursor: pointer;
+}
+
+.breeds li.active {
+  border: 2px solid #05d5a6;
+  padding: 8px 30px;
+  border-radius: 30px;
+  background: #05d5a6;
+  color: white;
+  cursor: pointer;
+}
+
+.breeds li.active:hover {
+  border: 2px solid #05d5a6;
+  background: white;
+  color: #17375f;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 .pet_wrapper {
   margin: 50px auto;
   max-width: 960px;

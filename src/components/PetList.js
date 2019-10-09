@@ -21,8 +21,8 @@ class PetList extends PureComponent {
   handleChange = (e) => {
     this.setState({ searchValue: e.target.value, isSearched: false });
   }
-  
-  handleSearch = () =>  {
+
+  handleSearch = () => {
     const { searchValue, animalList } = this.state;
     const result = animalList.filter(animal => animal.name.toLowerCase().includes(searchValue.toLowerCase()))
     this.setState({ isSearched: true, filtered: result })
@@ -32,7 +32,7 @@ class PetList extends PureComponent {
     const { searchValue, animalList, isSearched, filtered } = this.state;
     let List;
 
-    if(isSearched) {
+    if (isSearched) {
       List = filtered.map(animal => (<li key={animal.id}><Pet pet={animal} /></li>))
     } else {
       List = animalList.map(animal => (<li key={animal.id}><Pet pet={animal} /></li>))
@@ -47,6 +47,15 @@ class PetList extends PureComponent {
           />
           <span className="search_icon" onClick={this.handleSearch}><IoIosSearch /></span>
         </header>
+        <div className="filter_section">
+          <h4 className="title">Type</h4>
+          <ul className="breeds">
+            <li className="active">Bunnies</li>
+            <li>Cats</li>
+            <li>Dogs</li>
+            <li>Toads</li>
+          </ul>
+        </div>
         <div className="pet_wrapper">
           <ul className="pet_list">
             {List}
