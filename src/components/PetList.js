@@ -22,9 +22,11 @@ class PetList extends PureComponent {
   }
 
   componentDidMount() {
+    // setTimeout is added here to simulate loading
     setTimeout(() => {
-      this.setState({ animalList: animals, filtered: animals })
-    }, 1000);  
+      // store data to state
+      this.setState({ animalList: animals, filtered: animals });
+    }, 1000);
   }
 
   handleChange = (e) => {
@@ -40,7 +42,8 @@ class PetList extends PureComponent {
   handleFilter = (type) => {
     let result;
     const { animalList } = this.state;
-    if(type === 'all') {
+
+    if (type === 'all') {
       result = animalList;
     } else {
       result = animalList.filter(animal => animal.type.toLowerCase().includes(type.toLowerCase()))
@@ -60,11 +63,11 @@ class PetList extends PureComponent {
           css={loadingStyle}
           sizeUnit={'px'}
           size={20}
-          color={'#17375f'}
+          color={'#05d5a6'}
           loading={isEmpty}
         />
       );
-    } 
+    }
 
     if (isSearched) {
       List = filtered.map(animal => (<li key={animal.id}><Pet pet={animal} /></li>))
@@ -100,16 +103,10 @@ class PetList extends PureComponent {
               onClick={() => this.handleFilter('dog')}>
               Dogs
             </li>
-            {/* <li className={type === 'toad' ? 'active' : ''}
-              onClick={() => this.handleFilter('toad')}>
-              Toads
-            </li> */}
           </ul>
         </div>
         <div className="pet_wrapper">
-          <ul className="pet_list">
-            {List}
-          </ul>
+          <ul className="pet_list">{List}</ul>
         </div>
       </div>
     );

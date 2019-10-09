@@ -1,3 +1,27 @@
+.top {
+  background: #fff;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5%;
+}
+
+.top span {
+  text-transform: uppercase;
+  color: #a1a1a1;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.top span:hover {
+  color: #8e8e8e;
+}
+
+.details_wrapper {
+  margin: 0 10%;
+}
+
 .pet_description h3 {
   margin-bottom: 0;
 }
@@ -47,4 +71,27 @@
   position: relative;
   top: -15px;
   font-size: 12px;
+}
+
+
+@media screen and (max-width: 480px) {
+  .details_wrapper {
+    margin: 0;
+  }
+
+  .pet_attribute {
+    font-size: 14px;
+  }
+
+  .score_meter {
+    width: 120px;
+  }
+
+  .meter {
+    height: 16px;;
+  }
+
+  .value {
+    font-size: 10px;
+  }
 }
