@@ -4,7 +4,7 @@ import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import Pet from './Pet';
 import { IoIosSearch } from "react-icons/io";
 
-import { animals } from '../data'
+import { ANIMALS } from '../data'
 import '../App.css';
 
 const loadingStyle = {
@@ -25,7 +25,7 @@ class PetList extends PureComponent {
     // setTimeout is added here to simulate loading
     setTimeout(() => {
       // store data to state
-      this.setState({ animalList: animals, filtered: animals });
+      this.setState({ animalList: ANIMALS, filtered: ANIMALS });
     }, 1000);
   }
 

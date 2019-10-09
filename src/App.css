@@ -1,6 +1,7 @@
 .App-header {
   background-color: #17375f;
   min-height: 300px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,6 +40,11 @@
 .search_icon:hover {
   background: rgba(5, 213, 166, 0.6);
 }
+
+::placeholder {
+  color: rgba(238, 238, 238, 0.5)
+}
+
 
 .filter_section {
   margin: 30px auto;
@@ -135,6 +141,7 @@
   }
   .search_input {
     width: 60%;
+    margin: 0 auto;
   }
   .search_icon {
     left: -45px;

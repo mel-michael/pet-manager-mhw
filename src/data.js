@@ -1,4 +1,4 @@
-export const bios = [
+export const BIOS = [
   {
     "id": 1,
     "bio": "A happy dog."
@@ -34,7 +34,7 @@ export const bios = [
 ];
 
 
-export const animals = [
+export const ANIMALS = [
   {
     "id": 1,
     "name": "Marlie",

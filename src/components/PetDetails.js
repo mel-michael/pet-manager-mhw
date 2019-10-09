@@ -1,7 +1,8 @@
 // External dependencies
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+import { BIOS } from '../data'
 import './PetDetails.css';
 
 // Styles
@@ -55,12 +56,20 @@ const PetDetails = (props) => {
   const { state: pet } = props.location;
   const { scores } = pet;
 
+  const [petBio, setBio] = useState(null);
+
   useEffect(() => {
     // Force view to start from the top
     window.scrollTo(0, 0);
-  });
 
-  console.log(props)
+    // get pet bio from given data
+    function getPetBio() {
+      const bio = BIOS.find(bio => bio.id === pet.id);
+      setBio(bio);
+    }
+
+    getPetBio();
+  });
 
   return (
     <Fragment>
@@ -73,7 +82,7 @@ const PetDetails = (props) => {
           <div className="pet_description">
             <h3>{pet.name}</h3>
             <small>{pet.breed}</small>
-            <p>Bio: Nice dog</p>
+            { petBio && (<p>Bio: {petBio.bio}</p>) }
           </div>
           <div className="pet_description">
             <h3>{pet.daysOld} Days Old</h3>
