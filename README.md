@@ -1,5 +1,7 @@
 # Mel Michael – MakerSights Take Home Assignment
 
+A simple app for managing pets
+
 # Technologies
 
 * [Create React App](https://github.com/facebook/create-react-app)
@@ -11,25 +13,22 @@
 
 ## Installation
 
-* In the project directory, run `npm install`
+* In the project directory, run `npm install`.
 
-* Run `npm start` to start the application
+* Run `npm start` to start the application.
 
-* Go to `localhost:3000` to view the application
+* Go to `localhost:3000` to view the application.
 
 
 ## Prioritized
 
 * Pet List page
 
-* Filter Implementation
-
 * Search Implementation
 
+* Filter Implementation
+
 * Responsiveness
-
-
-## To Do
 
 * Pet Details page
 
