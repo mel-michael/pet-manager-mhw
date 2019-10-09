@@ -10,7 +10,7 @@
 
 .search_input {
   font-size: 16px;
-  height: 30px;
+  height: 32px;
   width: 40%;
   border: 1px solid #eee;
   border-radius: 20px;
@@ -23,12 +23,21 @@
 .search_icon {
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 10px 15px;
+  border: 0;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
   cursor: pointer;
   outline: 0;
   color: #eee;
   position: relative;
-  left: -56px;
+  left: -54px;
+  background: rgba(5, 213, 166, 1);
+  font-size: 24px;
+}
+
+.search_icon:hover {
+  background: rgba(5, 213, 166, 0.6);
 }
 
 .filter_section {

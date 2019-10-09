@@ -82,7 +82,7 @@ class PetList extends PureComponent {
             className="search_input" value={searchValue}
             onChange={this.handleChange}
           />
-          <span className="search_icon" onClick={this.handleSearch}><IoIosSearch /></span>
+          <button className="search_icon" onClick={this.handleSearch}><IoIosSearch /></button>
         </header>
         <div className="filter_section">
           <h4>Type</h4>
