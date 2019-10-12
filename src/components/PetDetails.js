@@ -59,9 +59,6 @@ const PetDetails = (props) => {
   const [petBio, setBio] = useState(null);
 
   useEffect(() => {
-    // Force view to start from the top
-    window.scrollTo(0, 0);
-
     // get pet bio from given data
     function getPetBio() {
       const bio = BIOS.find(bio => bio.id === pet.id);
@@ -69,7 +66,8 @@ const PetDetails = (props) => {
     }
 
     getPetBio();
-  });
+  }, [pet.id]);
+
 
   return (
     <Fragment>
