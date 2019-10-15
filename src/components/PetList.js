@@ -1,15 +1,23 @@
 import React, { PureComponent } from 'react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
-
-import Pet from './Pet';
 import { IoIosSearch } from "react-icons/io";
 
+import Pet from './Pet';
+import Heart from '../library/Heart';
 import { ANIMALS } from '../data'
 import '../App.css';
 
 const loadingStyle = {
   display: 'block',
   margin: '300px auto',
+}
+
+const savedStyle = {
+  position: 'absolute',
+  top: '10px',
+  right: '10px',
+  zIndex: '100',
+  cursor: 'pointer'
 }
 
 class PetList extends PureComponent {
@@ -51,6 +59,18 @@ class PetList extends PureComponent {
     this.setState({ type, isSearched: true, filtered: result })
   }
 
+  handleSave = (petId) => {
+    const { animalList } = this.state;
+    const updatedAnimalList = animalList.map(animal => {
+      if (animal.id === petId) {
+        animal.saved = !animal.saved;
+        return animal;
+      }
+      return animal;
+    });
+    this.setState({ animalList: updatedAnimalList })
+  }
+
   render() {
     const { searchValue, animalList, isSearched, filtered, type } = this.state;
     let List;
@@ -70,9 +90,23 @@ class PetList extends PureComponent {
     }
 
     if (isSearched) {
-      List = filtered.map(animal => (<li key={animal.id}><Pet pet={animal} /></li>))
+      List = filtered.map(animal => (
+        <li key={animal.id} style={{ position: 'relative' }}>
+          <Pet pet={animal} />
+          <div style={savedStyle}onClick={() => this.handleSave(animal.id)}>
+            <Heart saved={animal.saved} />
+          </div>
+        </li>
+      ))
     } else {
-      List = animalList.map(animal => (<li key={animal.id}><Pet pet={animal} /></li>))
+      List = animalList.map(animal => (
+        <li key={animal.id} style={{ position: 'relative' }}>
+          <Pet pet={animal} />
+          <div style={savedStyle} onClick={() => this.handleSave(animal.id)}>
+            <Heart style={savedStyle} saved={animal.saved} />
+          </div>
+        </li>
+      ))
     }
 
     return (

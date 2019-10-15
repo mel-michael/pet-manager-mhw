@@ -66,8 +66,8 @@ const PetDetails = (props) => {
     }
 
     getPetBio();
-  }, [pet.id]);
 
+  }, [pet.id]);
 
   return (
     <Fragment>

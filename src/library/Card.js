@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import Heart from './Heart';
-
 // Styles
 const Card = styled.div`
   position: relative;
@@ -61,16 +59,8 @@ const breedStyle = {
   left: '5%',
 }
 
-const savedStyle = {
-  position: 'absolute',
-  top: '10px',
-  right: '10px',
-  zIndex: '100',
-  cursor: 'pointer'
-}
-
 function PetCard({ pet }) {
-  const { img, name, breed, saved } = pet;
+  const { img, name, breed } = pet;
 
   return (
     <Link to={{ pathname: '/details', state: pet }}>
@@ -79,7 +69,6 @@ function PetCard({ pet }) {
         <div style={imgOverlay}></div>
         <CardTitle>{name}</CardTitle>
         <span style={breedStyle}>{breed}</span>
-        <div style={savedStyle}><Heart saved={saved} /></div>
       </Card>
     </Link>
   );
