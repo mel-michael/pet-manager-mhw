@@ -38,7 +38,11 @@ class PetList extends PureComponent {
   }
 
   handleChange = (e) => {
-    this.setState({ searchValue: e.target.value, isSearched: false });
+    const { animalList } = this.state;
+    const userInput = e.target.value;
+
+    const result = animalList.filter(animal => animal.name.toLowerCase().includes(userInput.toLowerCase()))
+    this.setState({ isSearched: true, filtered: result, searchValue: userInput })
   }
 
   handleSearch = () => {
@@ -90,14 +94,17 @@ class PetList extends PureComponent {
     }
 
     if (isSearched) {
-      List = filtered.map(animal => (
+      List = filtered.length > 0 ? filtered.map(animal => (
         <li key={animal.id} style={{ position: 'relative' }}>
           <Pet pet={animal} />
-          <div style={savedStyle}onClick={() => this.handleSave(animal.id)}>
+          <div style={savedStyle} onClick={() => this.handleSave(animal.id)}>
             <Heart saved={animal.saved} />
           </div>
         </li>
-      ))
+      )) :
+        <p style={{ margin: 'auto', color: '#17375f', fontSize: 20 }}>
+          No pet(s) found
+        </p>
     } else {
       List = animalList.map(animal => (
         <li key={animal.id} style={{ position: 'relative' }}>
