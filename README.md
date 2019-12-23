@@ -1,4 +1,4 @@
-# Mel Michael – MakerSights Take Home Assignment
+# Pet Manager 
 
 A simple app for managing pets
 
